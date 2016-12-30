@@ -1,0 +1,12 @@
+#!/bin/bash
+
+service ssh restart
+sleep 5
+ncpd --serial=/dev/ttyUSB0 --baudrate=19200
+sleep 5
+plpfuse -o allow_other /media/psion
+sleep 5
+
+echo 'Link active. Press ctrl-c to end.'
+
+while $(sleep 1); do echo -n '.'; done
